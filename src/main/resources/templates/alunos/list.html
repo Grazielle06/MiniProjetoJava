@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão de Alunos</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .btn { background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;}
+  </style>
+</head>
+<body>
+
+<h1>Lista de Alunos Cadastrados</h1>
+
+<a th:href="@{/alunos/novo}" class="btn">Cadastrar Novo Aluno</a>
+
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Matrícula</th>
+    <th>Curso</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="aluno : ${alunos}">
+    <td th:text="${aluno.id}">1</td>
+    <td th:text="${aluno.nome}">Fulano da Silva</td>
+    <td th:text="${aluno.email}">fulano@email.com</td>
+    <td th:text="${aluno.matricula}">2023001</td>
+
+    <td th:text="${aluno.curso != null} ? ${aluno.curso.nome} : 'Sem Curso'">Engenharia</td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<a href="/">Voltar ao Menu Principal</a> (Caso tenha criado menu, senão pode ignorar)
+
+</body>
+</html>

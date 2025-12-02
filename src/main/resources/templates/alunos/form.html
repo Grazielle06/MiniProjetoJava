@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>NOVO ALUNO</title>
+</head>
+<body>
+
+<h2>Cadastra Aluno</h2>
+
+<form th:action="@{/alunos}" th:object="${aluno}" method="post">
+
+  <label>Nome:</label>
+  <input type="text" th:field="*{nome}" placeholder="Nome do Aluno" required />
+  <br><br>
+
+  <label>Email:</label>
+  <input type="email" th:field="*{email}" placeholder="email@exemplo.com" required />
+  <br><br>
+
+  <label>Matrícula:</label>
+  <input type="text" th:field="*{matricula}" placeholder="Matrícula" required />
+  <br><br>
+
+  <label>Curso:</label>
+  <select th:field="*{curso}">
+    <option value="">Selecione um curso</option>
+    <option th:each="c : ${cursos}"
+            th:value="${c.id}"
+            th:text="${c.nome}">
+    </option>
+  </select>
+  <br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<br>
+<a th:href="@{/alunos}">Voltar para Lista</a>
+
+</body>
+</html>
