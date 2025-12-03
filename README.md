@@ -85,4 +85,4 @@ Com isso, toda a comunicação com o banco é feita pelos repositórios, sem nec
 
 ## Vídeo de Apresentação
 
-**Link do vídeo:** 
+**Link do vídeo:** https://www.youtube.com/watch?v=f_3ocTsGADI
